@@ -11,6 +11,7 @@ class BaseController extends Controller
         $this->data["title"] = 'Admin Sayfası...';
 
 
+
         $this->view("admin/index", $this->data);
     }
 }
