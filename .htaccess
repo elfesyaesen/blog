@@ -1,21 +1,5 @@
-<IfModule mod_autoindex.c>
-  IndexIgnore *
-</IfModule>
-
-<IfModule mod_headers.c>
-  Header set Referrer-Policy "no-referrer"
-</IfModule>
-
-<IfModule mod_headers.c>
-  Header always set X-Content-Type-Options "nosniff"
-  Header always set Permissions-Policy "interest-cohort=()"
-</IfModule>
-
-Options +FollowSymlinks
 Options -Indexes
 RewriteEngine On
 RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|webp|js|css|svg)
 RewriteRule ^([^?]*) index.php?route=$1 [L,QSA]

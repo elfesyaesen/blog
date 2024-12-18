@@ -1,17 +1,19 @@
 <?php
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+session_start();
+ob_start();
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'https';
 $host = $_SERVER['HTTP_HOST'];
 $base_url = $protocol . '://' . $host . '/';
 
+//site name 
 define('APP_URL', $base_url);
+
 define('APP_ROOT', dirname(__FILE__));
-define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', '');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', '');
-define('DB_CHARSET', 'utf8mb4');
-define('DB_PORT', '3306');
-define('DB_PREFIX', '');
+define('DB_HOST', 'localhost');
+define('DB_USER', '');
+define('DB_PASS', '');
+define('DB_NAME', '');
+define('DB_CHARSET', 'utf8');
 define('DB_OPTIONS', [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
